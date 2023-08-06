@@ -2,7 +2,7 @@ from objects import DbSqliteConnector, DbPostgresConnector, DbMySqlConnector
 from typing import Literal
 
 
-class DatabaseFactory:
+class DbConnectors:
 
     def __init__(self, driver: Literal['sqlite', 'postgresql', 'mysql'], **kwargs):
         """Factory para as diferentes instâncias de conectores(DbMySqlConnect, DbPostgresConnect, DbSqliteConnect). A
