@@ -27,7 +27,7 @@ database = {
     "database": "estudos",
     "user": "skyartur",
     "password": "010101",
-    "host": "192.168.1.65"
+    "host": "localhost"
 }
 file_sqlite = dict(database='./files/db.sqlite')
 
