@@ -38,3 +38,46 @@ Saída:
 ```
 
 
+### PostgreSQL / MySQL
+
+```python
+from DatabaseConnectors import DbConnectors
+
+database = {
+    "database": "estudos",
+    "user": "skyartur",
+    "password": "010101",
+    "host": "localhost"
+}
+
+alunos = ['Aline', 'Pedro', 'Bianca', 'Charles']
+
+db_postgres = DbConnectors('postgresql', **database).connect
+db_mysql = DbConnectors('mysql', **database).connect
+
+db_postgres.execute('''
+CREATE TABLE IF NOT EXISTS alunos(
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL 
+);
+''')
+
+db_mysql.execute('''
+CREATE TABLE IF NOT EXISTS alunos(
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL 
+);
+''')
+
+for nome in alunos:
+    db_postgres.execute('INSERT INTO alunos (nome) VALUES (%s);', (nome,))
+    db_mysql.execute('INSERT INTO alunos (nome) VALUES (%s);', (nome,))
+
+print(db_postgres.execute('SELECT * FROM alunos;'))
+print(db_mysql.execute('SELECT * FROM alunos;'))
+```
+Saída:
+```shell
+[(1, 'Aline'), (2, 'Pedro'), (3, 'Bianca'), (4, 'Charles')]
+[(1, 'Aline'), (2, 'Pedro'), (3, 'Bianca'), (4, 'Charles')]
+```
