@@ -1,0 +1,11 @@
+venv
+
+.idea
+
+__pycache__
+
+files
+
+main.py
+
+.gitignore
