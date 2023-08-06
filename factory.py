@@ -20,9 +20,7 @@ class DbConnectors:
 
     @property
     def connect(self) -> DbSqliteConnector | DbPostgresConnector | DbMySqlConnector:
-        """
-        Propriedade retorna uma instância de conector para banco de dados.
-        """
+        """Propriedade retorna uma instância de conector para banco de dados."""
         try:
             return self.__object
         except AttributeError as err:

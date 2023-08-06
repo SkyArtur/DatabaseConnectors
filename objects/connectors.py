@@ -1,5 +1,5 @@
 """
-Driver para conexões com banco de dados MySQL, Sqlite3, PostgreSQL.
+Conectores para conexões com banco de dados MySQL, Sqlite3, PostgreSQL.
 """
 from .singleton import *
 

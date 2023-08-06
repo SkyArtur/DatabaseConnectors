@@ -44,9 +44,8 @@ class SingletonDatabase:
                 self.cursor.execute(query, data)
             response = self.cursor.fetchall() if 'SELECT' in query else None
             self.connect.commit()
-
         except (mysql.connector.Error, sqlite3.Error, psycopg2.Error, RuntimeError) as err:
-            print(f'{self}:: ERROR QUERY: {query}\n{err}')
+            print(f'{self}:: ERROR QUERY :: {query}\n{err}')
         else:
             return response
         finally:
@@ -54,4 +53,4 @@ class SingletonDatabase:
                 self.cursor.close()
                 self.connect.close()
             except AttributeError as err:
-                print(f'{self} :: ERROR QUERY :: {query}\n{err}\nVerifique dados de conexão com o banco de dados.')
+                print(f'{self} :: ERROR QUERY :: {query}\n{err}\nVerifique dados de conexão.')
