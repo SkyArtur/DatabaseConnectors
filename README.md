@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS alunos(
 
 db_mysql.execute('''
 CREATE TABLE IF NOT EXISTS alunos(
-    id SERIAL PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(255) NOT NULL 
 );
 ''')
