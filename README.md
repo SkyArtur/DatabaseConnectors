@@ -92,7 +92,7 @@ class DbConnector:
 Desta forma a estrutura do projeto remete toda a um único objeto singleton construído por uma factory, indiferentemente 
 do número de conectores que exista.
 
-![img.png](img.png)
+
 
 ## Exemplos básicos de utilização:
 
