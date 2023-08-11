@@ -92,6 +92,7 @@ class DbConnector:
 Desta forma a estrutura do projeto remete toda a um único objeto singleton construído por uma factory, indiferentemente 
 do número de conectores que exista.
 
+![Untitled](https://github.com/SkyArtur/DatabaseConnectors/assets/93395366/51b02960-6f43-4483-b96a-648fb3cf59a3)
 
 
 ## Exemplos básicos de utilização:
