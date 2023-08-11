@@ -97,7 +97,7 @@ do número de conectores que exista.
 
 ### Sqlite
 
-Para uma conexão Sqlite, basta passar o caminho do arquivo, pelo parâmetro 'database=''.
+Para uma conexão Sqlite, basta passar o caminho do arquivo, para o parâmetro 'database=''.
 
 ```python
 from db_connector import DbConnector
@@ -119,7 +119,7 @@ D:\GitHub\DatabaseConnectors\venv\Scripts\python.exe D:\GitHub\DatabaseConnector
 [(1, 'Aline'), (2, 'Sandra'), (3, 'Pedro'), (4, 'Marcio')]
 ```
 
-### MySQL
+### PostgreSQL
 
 Instanciando o objeto e passando os atributos nomeados diretamente.
 
