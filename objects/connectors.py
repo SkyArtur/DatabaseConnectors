@@ -1,10 +1,10 @@
 """
 Conectores para conexões com banco de dados MySQL, Sqlite3, PostgreSQL.
 """
-from .singleton import *
+from .connector import *
 
 
-class DbMySqlConnector(SingletonDatabase):
+class DbMySqlConnector(Connector):
     def __init__(self, **kwargs):
         """
         :param kwargs: {database: str, user: str, password: str, host: str, port: str}
@@ -16,7 +16,7 @@ class DbMySqlConnector(SingletonDatabase):
         return mysql.connector.connect(**self.database)
 
 
-class DbPostgresConnector(SingletonDatabase):
+class DbPostgresConnector(Connector):
     def __init__(self, **kwargs):
         """
         :param kwargs: {database: str, user: str, password: str, host: str, port: str}
@@ -28,7 +28,7 @@ class DbPostgresConnector(SingletonDatabase):
         return psycopg2.connect(**self.database)
 
 
-class DbSqliteConnector(SingletonDatabase):
+class DbSqliteConnector(Connector):
     def __init__(self, **kwargs):
         """
         :param kwargs: {database: nome_arquivo.sqlite}

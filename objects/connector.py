@@ -4,18 +4,18 @@ import sqlite3
 from abc import abstractmethod
 
 
-class SingletonDatabase:
+class Connector:
     __instance = None
 
     def __new__(cls, *args, **kwargs):
         if not cls.__instance or cls.__instance is None:
-            cls.__instance = super(SingletonDatabase, cls).__new__(cls)
+            cls.__instance = super(Connector, cls).__new__(cls)
         return cls.__instance
 
     def __init__(self, **kwargs):
         self.database = kwargs
-        self.connect = None
-        self.cursor = None
+        self.__connect = None
+        self.__cursor = None
 
     def __str__(self):
         return self.__class__.__name__
@@ -36,21 +36,21 @@ class SingletonDatabase:
         :return: list[tuple] | None
         """
         try:
-            self.connect = self.connection()
-            self.cursor = self.connect.cursor()
+            self.__connect = self.connection()
+            self.__cursor = self.__connect.cursor()
             if not data:
-                self.cursor.execute(query)
+                self.__cursor.execute(query)
             else:
-                self.cursor.execute(query, data)
-            response = self.cursor.fetchall() if 'SELECT' in query else None
-            self.connect.commit()
+                self.__cursor.execute(query, data)
+            response = self.__cursor.fetchall() if 'SELECT' in query else None
+            self.__connect.commit()
         except (mysql.connector.Error, sqlite3.Error, psycopg2.Error, RuntimeError) as err:
             print(f'{self}:: ERROR QUERY :: {query}\n{err}')
         else:
             return response
         finally:
             try:
-                self.cursor.close()
-                self.connect.close()
-            except AttributeError as err:
+                self.__cursor.close()
+                self.__connect.close()
+            except (AttributeError, mysql.connector.Error) as err:
                 print(f'{self} :: ERROR QUERY :: {query}\n{err}\nVerifique dados de conexão.')

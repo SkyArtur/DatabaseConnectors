@@ -1,1 +1,1 @@
-from .factory import DbConnectors
+from .db_connector import DbConnector
