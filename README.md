@@ -44,6 +44,7 @@ class Connector:
         pass
 ```
 
+#### Relacionamento dos conectores específicos:
 - Herança
 
 É por herança que os objetos DbSqliteConnector, DbPostgresConnector, DbMySqlConnector, adquirem suas características.
@@ -62,7 +63,7 @@ class DbMySqlConnector(Connector):
         """Estabelece uma conexão com um banco de dados MySQL."""
         return mysql.connector.connect(**self.database)
 ```
-
+#### Padrão do objeto DbConnector:
 - Simple Factory
 
 Este é o padrão do objeto final da estrutura do projeto: DbConnector(). Ele retorna uma instância do conector escolhido 
