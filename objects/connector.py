@@ -53,4 +53,4 @@ class Connector:
                 self.__cursor.close()
                 self.__connect.close()
             except (AttributeError, mysql.connector.Error) as err:
-                print(f'{self} :: ERROR QUERY :: {query}\n{err}\nVerifique dados de conexão.')
+                print(f'{self} :: ERROR QUERY :: \n{err}\nVerifique dados de conexão.')
