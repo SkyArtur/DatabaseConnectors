@@ -66,7 +66,7 @@ class DbMySqlConnector(Connector):
 - Simple Factory
 
 Este é o padrão do objeto final da estrutura do projeto: DbConnector(). Ele retorna uma instância do conector escolhido 
-a partir de sua própria instanciação. Aqui é utilizado da biblioteca typing o objeto Literal, para criar um type hinting
+a partir de sua própria instanciação. Aqui é utilizado da biblioteca typing, o objeto Literal, para criar um type hinting
 mais objetivo para o parâmetro __driver.
 
 ```python
